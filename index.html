@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rhythm Soul</title>
+  <meta name="description" content="Practice one thing a day. The island remembers. A local-first iOS practice companion — not medical advice.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="index.html">
+        <svg class="mascot" viewBox="0 0 64 64" aria-hidden="true">
+          <ellipse cx="32" cy="56" rx="14" ry="4" fill="#2f3a3222"/>
+          <circle cx="32" cy="34" r="18" fill="#40ccc4"/>
+          <circle cx="26" cy="32" r="5" fill="#fff"/>
+          <circle cx="38" cy="32" r="5" fill="#fff"/>
+          <circle cx="27" cy="33" r="2.4" fill="#1d4f52"/>
+          <circle cx="39" cy="33" r="2.4" fill="#1d4f52"/>
+          <circle cx="25" cy="31" r="1" fill="#fff"/>
+          <circle cx="37" cy="31" r="1" fill="#fff"/>
+          <path d="M27 41c3 3 7 3 10 0" fill="none" stroke="#1d4f52" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Rhythm Soul
+      </a>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
 
+    <section class="hero">
+      <svg viewBox="0 0 160 160" aria-hidden="true">
+        <ellipse cx="80" cy="138" rx="36" ry="10" fill="#2f3a3220"/>
+        <circle cx="80" cy="84" r="48" fill="#3fd0c8"/>
+        <circle cx="80" cy="118" r="28" fill="#2bb8b0"/>
+        <circle cx="62" cy="78" r="14" fill="#fff"/>
+        <circle cx="98" cy="78" r="14" fill="#fff"/>
+        <circle cx="64" cy="81" r="7" fill="#1d4f52"/>
+        <circle cx="100" cy="81" r="7" fill="#1d4f52"/>
+        <circle cx="59" cy="76" r="3" fill="#fff"/>
+        <circle cx="95" cy="76" r="3" fill="#fff"/>
+        <circle cx="54" cy="92" r="6" fill="#ff9aa2" opacity=".85"/>
+        <circle cx="106" cy="92" r="6" fill="#ff9aa2" opacity=".85"/>
+        <path d="M66 102c8 8 20 8 28 0" fill="none" stroke="#1d4f52" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="118" cy="70" r="10" fill="#d9fff8"/>
+        <circle cx="128" cy="86" r="8" fill="#d9fff8"/>
+      </svg>
+      <h1>Rhythm Soul</h1>
+      <p class="tag" data-zh="每天練一件事。島會記住。" data-en="Practice one thing a day. The island remembers."></p>
+      <p class="lede" data-zh="寫下你想變好的那件事，立刻練十分鐘。明天用你留下的那句接著練。資料只留在你的 iPhone。" data-en="Name the thing you want. Practice ten minutes. Tomorrow picks up from the sentence you leave. Everything stays on your iPhone."></p>
+      <a class="btn" href="https://apps.apple.com" data-zh="即將在 App Store" data-en="Coming to the App Store"></a>
+    </section>
+
+    <div class="grid">
+      <article class="card">
+        <h2 data-zh="一棵焦點樹" data-en="One focus tree"></h2>
+        <p data-zh="一天只練現在這一步。不是地圖，不是經驗值海。" data-en="One step today. Not a quest map. Not a fake XP grind."></p>
+      </article>
+      <article class="card">
+        <h2 data-zh="留下一句" data-en="Leave one sentence"></h2>
+        <p data-zh="練完寫卡住的地方。下一步會跟著那句走。" data-en="After practice, write what got stuck. The next step follows that note."></p>
+      </article>
+      <article class="card">
+        <h2 data-zh="本機優先" data-en="Local first"></h2>
+        <p data-zh="沒有帳號。沒有雲端檔案。技能樹活在這台裝置。" data-en="No account. No cloud file. Your trees live on this device."></p>
+      </article>
+      <article class="card">
+        <h2 data-zh="不是醫療" data-en="Not medical"></h2>
+        <p data-zh="這是生活練習陪伴，不是治療、診斷或健康建議。" data-en="A practice companion. Not therapy, diagnosis, or health advice."></p>
+      </article>
+    </div>
+
+    <p class="note" data-zh="18–45 歲。iPhone 與 iPad。iOS 17 以上。" data-en="Ages 18–45. iPhone and iPad. iOS 17+."></p>
+
+    <footer>
+      <a href="privacy.html" data-zh="隱私權" data-en="Privacy"></a>
+      <span>·</span>
+      <a href="mailto:howly7777777@gmail.com">howly7777777@gmail.com</a>
+    </footer>
+  </div>
+  <script>
+    const stored = localStorage.getItem("rs.siteLang") || ((navigator.language || "").toLowerCase().startsWith("zh") ? "zh" : "en");
+    const apply = (lang) => {
+      document.documentElement.lang = lang === "zh" ? "zh-Hant" : "en";
+      document.querySelectorAll("[data-zh]").forEach((el) => {
+        el.textContent = el.getAttribute(lang === "zh" ? "data-zh" : "data-en");
+      });
+      document.querySelectorAll(".lang button").forEach((btn) => {
+        btn.setAttribute("aria-pressed", btn.dataset.lang === lang ? "true" : "false");
+      });
+      localStorage.setItem("rs.siteLang", lang);
+    };
+    document.querySelectorAll(".lang button").forEach((btn) => {
+      btn.addEventListener("click", () => apply(btn.dataset.lang));
+    });
+    apply(stored === "en" ? "en" : "zh");
+  </script>
+</body>
+</html>
