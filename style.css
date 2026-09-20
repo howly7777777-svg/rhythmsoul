@@ -1,0 +1,158 @@
+/* Rhythm Soul — public site. Drop this folder on GitHub Pages. */
+:root {
+  --ink: #2f3a32;
+  --muted: #5b675e;
+  --paper: #f4f8ec;
+  --card: #fffcf6;
+  --line: #d7e0cc;
+  --green: #58cc02;
+  --green-dark: #46a302;
+  --sky: #c8e8f4;
+  --leaf: #7ac70c;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Nunito", "PingFang TC", "Noto Sans TC", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 480px at 50% -80px, var(--sky), transparent 70%),
+    var(--paper);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+a { color: var(--green-dark); font-weight: 800; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 20px 72px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.mascot {
+  width: 42px;
+  height: 42px;
+}
+
+.lang {
+  display: flex;
+  gap: 6px;
+}
+.lang button {
+  border: 2px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font: inherit;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+}
+.lang button[aria-pressed="true"] {
+  background: var(--green);
+  border-color: var(--green-dark);
+  color: #fff;
+}
+
+.hero {
+  background: var(--card);
+  border: 2px solid #1c1c1c1a;
+  border-radius: 28px;
+  padding: 36px 28px 32px;
+  text-align: center;
+}
+
+.hero svg { width: 140px; height: 140px; margin: 0 auto 8px; display: block; }
+
+h1 {
+  font-size: clamp(32px, 6vw, 48px);
+  margin: 8px 0 6px;
+  letter-spacing: -0.04em;
+}
+.tag {
+  color: var(--green-dark);
+  font-weight: 800;
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+.lede {
+  color: var(--muted);
+  font-size: 17px;
+  margin: 0 auto 22px;
+  max-width: 34em;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 16px;
+  box-shadow: 0 5px 0 var(--green-dark);
+  text-decoration: none;
+}
+.btn:hover { text-decoration: none; transform: translateY(1px); box-shadow: 0 4px 0 var(--green-dark); }
+
+.grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+@media (min-width: 640px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+}
+.card {
+  background: var(--card);
+  border: 2px solid #1c1c1c14;
+  border-radius: 20px;
+  padding: 18px 18px 16px;
+}
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+.card p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.note {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.prose h1 { font-size: 36px; }
+.prose h2 { margin-top: 28px; font-size: 20px; }
+.prose p, .prose li { color: var(--ink); }
+.prose ul { padding-left: 1.2em; }
+.updated { color: var(--muted); font-size: 13px; }
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+footer a { margin: 0 8px; }
