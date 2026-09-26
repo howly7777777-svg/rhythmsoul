@@ -84,7 +84,14 @@ a:hover { text-decoration: underline; }
   text-align: center;
 }
 
-.hero svg { width: 140px; height: 140px; margin: 0 auto 8px; display: block; }
+.hero-icon {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 8px;
+  display: block;
+  border-radius: 32px;
+}
+.mascot { border-radius: 10px; object-fit: cover; }
 
 h1 {
   font-size: clamp(32px, 6vw, 48px);
